@@ -715,6 +715,25 @@ img {
 
 @media (max-width: 768px) {
     .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(11, 15, 25, 0.98);
+        flex-direction: column;
+        padding: 20px 0;
+        gap: 20px;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        display: none;
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-actions {
         display: none;
     }
     
@@ -726,7 +745,20 @@ img {
         grid-template-columns: 1fr;
     }
     
+    .about-stats {
+        grid-template-columns: 1fr;
+    }
+    
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .section-padding {
+        padding: 60px 0;
     }
 }
+

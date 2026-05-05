@@ -54,9 +54,33 @@ progressBars.forEach(bar => {
     progressObserver.observe(bar);
 });
 
-// Mobile menu toggle (simple version)
+// Mobile menu toggle
 const mobileBtn = document.querySelector('.mobile-menu-btn');
+const navLinks = document.querySelector('.nav-links');
+
 mobileBtn.addEventListener('click', () => {
-    // Basic alert for now, could be expanded to a full mobile menu
-    alert('Mobile menu feature would open here. In a full implementation, this would slide out a navigation drawer.');
+    navLinks.classList.toggle('active');
+    
+    // Toggle icon between bars and xmark
+    const icon = mobileBtn.querySelector('i');
+    if (navLinks.classList.contains('active')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-xmark');
+    } else {
+        icon.classList.remove('fa-xmark');
+        icon.classList.add('fa-bars');
+    }
+});
+
+// Close mobile menu when a link is clicked
+const navItems = document.querySelectorAll('.nav-links a');
+navItems.forEach(item => {
+    item.addEventListener('click', () => {
+        if (navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            const icon = mobileBtn.querySelector('i');
+            icon.classList.remove('fa-xmark');
+            icon.classList.add('fa-bars');
+        }
+    });
 });
